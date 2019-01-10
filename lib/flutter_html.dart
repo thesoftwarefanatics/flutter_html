@@ -13,6 +13,7 @@ class Html extends StatelessWidget {
     this.onLinkTap,
     this.renderNewlines = false,
     this.customRender,
+    this.richTextCustomRender,
     this.useRichText = false,
   }) : super(key: key);
 
@@ -28,6 +29,8 @@ class Html extends StatelessWidget {
   /// fallback to the default rendering.
   final CustomRender customRender;
 
+  final RichTextCustomRender richTextCustomRender;
+
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -39,19 +42,20 @@ class Html extends StatelessWidget {
       child: DefaultTextStyle.merge(
         style: defaultTextStyle ?? DefaultTextStyle.of(context).style,
         child: (useRichText)
-        ? HtmlRichTextParser(
-          width: width,
-          onLinkTap: onLinkTap,
-          renderNewlines: renderNewlines,
-          html: data,
-        )
-        : HtmlOldParser(
-          width: width,
-          onLinkTap: onLinkTap,
-          renderNewlines: renderNewlines,
-          customRender: customRender,
-          html: data,
-        ),
+            ? HtmlRichTextParser(
+                width: width,
+                onLinkTap: onLinkTap,
+                renderNewlines: renderNewlines,
+                customRender: richTextCustomRender,
+                html: data,
+              )
+            : HtmlOldParser(
+                width: width,
+                onLinkTap: onLinkTap,
+                renderNewlines: renderNewlines,
+                customRender: customRender,
+                html: data,
+              ),
       ),
     );
   }
