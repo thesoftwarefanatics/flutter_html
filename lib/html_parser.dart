@@ -453,8 +453,8 @@ class HtmlRichTextParser extends StatelessWidget {
             } else {
               TextStyle linkStyle = parseContext.childStyle.merge(TextStyle(
                 decoration: TextDecoration.underline,
-                color: Colors.blueAccent,
-                decorationColor: Colors.blueAccent,
+                color: new Color(0xFF262626),
+                decorationColor: new Color(0xFF262626),
               ));
               LinkTextSpan span = LinkTextSpan(
                 style: linkStyle,
