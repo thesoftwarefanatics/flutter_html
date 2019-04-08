@@ -173,7 +173,8 @@ class HtmlRichTextParser extends StatelessWidget {
     "acronym",
     "ol",
     "ul",
-    "blockquote"
+    "blockquote",
+    "span",
   ];
 
   // specialty elements require unique handling
@@ -424,6 +425,8 @@ class HtmlRichTextParser extends StatelessWidget {
           case "blockquote":
             nextContext.indentLevel += 1;
             nextContext.blockType = 'blockquote';
+            break;
+          case "span":
             break;
         }
         nextContext.childStyle = childStyle;
