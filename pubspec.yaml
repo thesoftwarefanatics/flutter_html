@@ -1,4 +1,4 @@
-name: flutter_html
+name: tsf_flutter_html
 description: A Flutter widget for rendering static html tags as Flutter widgets. (Will render over 70 different html tags!)
 version: 0.7.0
 author: Matthew Whitaker <sub6resources@gmail.com>
